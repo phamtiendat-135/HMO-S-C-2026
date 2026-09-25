@@ -1,0 +1,1357 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HMO Scientific Conference 2026 — VNU-HUS · Abstracts v6</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+  rel="stylesheet"
+/>
+
+<!-- Tailwind (CDN) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Montserrat', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          display: ['Montserrat', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        },
+        colors: {
+          navy:   'var(--c-navy)',
+          ocean:  'var(--c-ocean)',
+          sky:    'var(--c-sky)',
+          coral:  'var(--c-coral)',
+          mist:   '#F5F7FA',
+        },
+        boxShadow: {
+          card: '0 8px 24px -12px rgba(10,46,92,.18), 0 2px 6px -2px rgba(10,46,92,.08)',
+          hi:   '0 24px 60px -24px rgba(10,46,92,.45)',
+          coral:'0 14px 30px -10px rgba(240,120,80,.55)',
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  :root{
+    --c-navy:#0A2E5C;
+    --c-ocean:#1B4E8F;
+    --c-sky:#60C0F0;
+    --c-coral:#F07850;
+    --c-mist:#F5F7FA;
+  }
+  html{ scroll-behavior:smooth; scroll-padding-top:80px; }
+  body{ font-family:'Montserrat',ui-sans-serif,system-ui,sans-serif; color:#0f172a; background:#fff; }
+
+  /* Reveal-on-scroll */
+  .reveal{ opacity:0; transform:translateY(28px); transition:opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); will-change:opacity,transform; }
+  .reveal.in{ opacity:1; transform:none; }
+  .reveal-stagger > *{ opacity:0; transform:translateY(20px); transition:opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
+  .reveal-stagger.in > *{ opacity:1; transform:none; }
+  .reveal-stagger.in > *:nth-child(1){ transition-delay:.05s; }
+  .reveal-stagger.in > *:nth-child(2){ transition-delay:.12s; }
+  .reveal-stagger.in > *:nth-child(3){ transition-delay:.19s; }
+  .reveal-stagger.in > *:nth-child(4){ transition-delay:.26s; }
+  .reveal-stagger.in > *:nth-child(5){ transition-delay:.33s; }
+  .reveal-stagger.in > *:nth-child(6){ transition-delay:.4s;  }
+  .no-anim .reveal, .no-anim .reveal-stagger > *{ opacity:1 !important; transform:none !important; transition:none !important; }
+
+  /* Hero ocean motion */
+  @keyframes wavePan { 0%{ transform:translateX(0); } 100%{ transform:translateX(-50%); } }
+  @keyframes pulseDot { 0%,100%{ transform:scale(1); opacity:.9; } 50%{ transform:scale(1.35); opacity:.5; } }
+  @keyframes float-y { 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-10px); } }
+  @keyframes shimmer { 0%{ background-position:-200% 0; } 100%{ background-position:200% 0; } }
+  .float-y{ animation:float-y 6s ease-in-out infinite; }
+  .no-anim .float-y{ animation:none; }
+
+  /* Hero gradient + grid */
+  .hero-bg{
+    background:
+      radial-gradient(1200px 600px at 80% 10%, rgba(96,192,240,.35), transparent 60%),
+      radial-gradient(900px 500px at 10% 90%, rgba(240,120,80,.18), transparent 60%),
+      linear-gradient(135deg, var(--c-navy) 0%, var(--c-ocean) 65%, #0e3b73 100%);
+  }
+  .hero-grid{
+    background-image:
+      linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse at center, #000 30%, transparent 80%);
+  }
+
+  /* Topic card hover */
+  .topic-card{ transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s; }
+  .topic-card:hover{ transform: translateY(-6px); box-shadow: 0 24px 50px -20px rgba(10,46,92,.35); }
+  .topic-card:hover .topic-icon{ background: var(--c-coral); color:#fff; transform:scale(1.06); }
+  .topic-icon{ transition: background .35s, color .35s, transform .35s; }
+
+  /* Sticky nav */
+  .nav-shadow{ box-shadow: 0 1px 0 rgba(10,46,92,.06), 0 8px 24px -16px rgba(10,46,92,.25); }
+
+  /* Form */
+  .field{ transition: border-color .2s, box-shadow .2s, background .2s; }
+  .field:focus{ border-color: var(--c-ocean); box-shadow: 0 0 0 4px rgba(27,78,143,.12); background:#fff; }
+  .field.err{ border-color:#dc2626; box-shadow: 0 0 0 4px rgba(220,38,38,.12); }
+
+  /* Coral CTA */
+  .btn-coral{
+    background: var(--c-coral);
+    transition: transform .2s, box-shadow .25s, filter .2s;
+    box-shadow: 0 14px 30px -10px rgba(240,120,80,.55);
+  }
+  .btn-coral:hover{ transform: translateY(-2px); filter: brightness(1.05); box-shadow: 0 18px 36px -12px rgba(240,120,80,.7); }
+  .btn-coral:active{ transform: translateY(0); }
+
+  /* Underline link */
+  .link-u{ background-image: linear-gradient(var(--c-coral),var(--c-coral)); background-repeat:no-repeat; background-position:0 100%; background-size:0 2px; transition: background-size .3s; }
+  .link-u:hover{ background-size:100% 2px; }
+
+  /* Toast */
+  @keyframes toastIn { from{ opacity:0; transform:translateY(20px) translateX(-50%);} to{ opacity:1; transform:translateY(0) translateX(-50%);} }
+  .toast{ animation: toastIn .35s cubic-bezier(.22,1,.36,1) both; }
+
+  /* Wave divider svg color follow */
+  .wave-fill{ fill: var(--c-mist); }
+
+  /* Discipline images (v2) — feathered, blended into navy background */
+  .disc-img{
+    -webkit-mask-image: radial-gradient(120% 115% at 78% 50%, #000 34%, rgba(0,0,0,.55) 56%, transparent 82%);
+            mask-image: radial-gradient(120% 115% at 78% 50%, #000 34%, rgba(0,0,0,.55) 56%, transparent 82%);
+    filter: saturate(.85) contrast(1) brightness(1.08);
+    mix-blend-mode: screen;
+    opacity:.95;
+  }
+  /* uniform navy color-grade laid over the whole image band */
+  .disc-grade{
+    background: linear-gradient(180deg, rgba(10,26,53,.3), rgba(13,35,64,.18) 50%, rgba(10,26,53,.32));
+    mix-blend-mode: multiply;
+  }
+  .disc-cap{
+    font-family:'Playfair Display', Georgia, serif; font-style:italic; font-weight:500;
+    font-size:clamp(18px,2.2vw,32px); line-height:1.1; color:rgba(255,255,255,.97);
+    letter-spacing:.01em; z-index:3; padding-right:.55em;
+    border-right:2px solid rgba(96,192,240,.9);
+    text-shadow:0 2px 18px rgba(4,12,28,.9),0 1px 3px rgba(4,12,28,.95);
+  }
+  .disc-met   { animation: float-y 13s ease-in-out infinite; }
+  .disc-ocean { animation: float-y 16s ease-in-out infinite; animation-delay:-4s; }
+  .disc-hydro { animation: float-y 12s ease-in-out infinite; animation-delay:-7s; }
+  .no-anim .disc-met, .no-anim .disc-ocean, .no-anim .disc-hydro{ animation: none; }
+
+  /* Countdown */
+  .cd-cell{ background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18); backdrop-filter: blur(8px); }
+
+  /* Topic icon ring */
+  .ring-soft{ box-shadow: 0 0 0 6px rgba(96,192,240,.12); }
+
+  /* Section heading underline */
+  .h-rule{ display:inline-flex; align-items:center; gap:10px; font-size:12px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:var(--c-ocean); }
+  .h-rule::before{ content:''; width:36px; height:2px; background: var(--c-coral); }
+
+  /* Agenda timeline */
+  .tl-line{ background: linear-gradient(180deg, var(--c-sky), var(--c-ocean)); }
+
+
+
+  /* ── Hero v6 — water cycle: atmosphere → river → ocean ───── */
+  .wc-root{ background: radial-gradient(900px 520px at 78% 18%, rgba(27,78,143,.45), transparent 65%); }
+  .wc-stars{ height:62%; opacity:.7;
+    background-image:
+      radial-gradient(1px 1px at 12% 18%, #fff 50%, transparent 51%), radial-gradient(1px 1px at 28% 8%, #cfe9ff 50%, transparent 51%),
+      radial-gradient(1.5px 1.5px at 44% 26%, #fff 50%, transparent 51%), radial-gradient(1px 1px at 58% 12%, #fff 50%, transparent 51%),
+      radial-gradient(1px 1px at 66% 44%, #cfe9ff 50%, transparent 51%), radial-gradient(1.5px 1.5px at 8% 52%, #fff 50%, transparent 51%),
+      radial-gradient(1px 1px at 36% 58%, #fff 50%, transparent 51%), radial-gradient(1px 1px at 52% 70%, #cfe9ff 50%, transparent 51%),
+      radial-gradient(1px 1px at 20% 36%, #fff 50%, transparent 51%), radial-gradient(1.5px 1.5px at 62% 30%, #fff 50%, transparent 51%);
+    -webkit-mask-image: linear-gradient(180deg,#000 55%,transparent); mask-image: linear-gradient(180deg,#000 55%,transparent);
+    animation: wcTwinkle 7s ease-in-out infinite; }
+  .wc-globe{ top:-7%; right:-13%; width:min(42vw, 620px); aspect-ratio:1/1; border-radius:50%; overflow:hidden;
+    box-shadow: 0 0 0 1px rgba(150,215,250,.35), 0 0 50px 8px rgba(96,192,240,.45), 0 0 140px 30px rgba(27,78,143,.45);
+    animation: wcGlobe 40s ease-in-out infinite; }
+  .wc-globe img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 62%; transform-origin:52% 58%;
+    filter: saturate(1.1) brightness(.92) contrast(1.05); transform:scale(1.45); }
+  .wc-globe-shade{ border-radius:50%;
+    background: radial-gradient(circle at 30% 26%, rgba(255,255,255,.14), transparent 40%), radial-gradient(circle at 36% 30%, transparent 52%, rgba(4,12,28,.55) 78%, rgba(4,12,28,.92) 100%); }
+  .wc-flare{ top:calc(-7% + min(42vw,620px)*.06); right:calc(-13% + min(42vw,620px)*.66); width:180px; height:180px; transform:translate(50%,-50%);
+    background: radial-gradient(circle, rgba(255,250,235,.95) 0 4%, rgba(255,210,150,.55) 10%, rgba(240,120,80,.18) 30%, transparent 62%); mix-blend-mode:screen; }
+  .wc-land{ left:0; right:0; bottom:0; height:44%;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.55) 14%, #000 32%); mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.55) 14%, #000 32%); }
+  .wc-land img{ position:absolute; top:0; height:100%; object-fit:cover; }
+  .wc-river{ left:0; width:62%; object-position:40% 60%; filter: saturate(.75) hue-rotate(-8deg) brightness(.72) contrast(1.05);
+    -webkit-mask-image: linear-gradient(90deg,#000 70%,transparent); mask-image: linear-gradient(90deg,#000 70%,transparent); }
+  .wc-sea{ right:0; width:58%; object-position:42% 100%; transform-origin:40% 100%; filter: saturate(.9) brightness(.8);
+    -webkit-mask-image: linear-gradient(90deg,transparent 0%,rgba(0,0,0,.6) 18%,#000 36%); mask-image: linear-gradient(90deg,transparent 0%,rgba(0,0,0,.6) 18%,#000 36%);
+    animation: wcSea 30s ease-in-out infinite; }
+  .wc-land-grade{ background: linear-gradient(180deg, rgba(8,28,58,.35), rgba(8,28,58,.05) 40%, rgba(8,28,58,.55) 100%); mix-blend-mode:multiply; }
+  .wc-horizon{ left:0; right:0; bottom:calc(44% - 90px); height:200px;
+    background: radial-gradient(60% 50% at 58% 60%, rgba(255,170,110,.38), rgba(240,120,80,.14) 45%, transparent 75%); mix-blend-mode:screen; }
+  .wc-mist{ left:-20%; right:-20%; bottom:calc(44% - 70px); height:130px; opacity:.55; filter:blur(18px);
+    background: radial-gradient(30% 45% at 20% 50%, rgba(220,235,250,.5), transparent 70%), radial-gradient(28% 40% at 55% 55%, rgba(220,235,250,.4), transparent 70%), radial-gradient(26% 42% at 85% 45%, rgba(220,235,250,.45), transparent 70%);
+    animation: wcMist 46s linear infinite alternate; }
+  .wc-textfade{ background: linear-gradient(90deg, rgba(8,28,58,.9) 0%, rgba(8,28,58,.75) 40%, rgba(8,28,58,.45) 58%, rgba(8,28,58,.12) 70%, transparent 78%);
+    -webkit-mask-image: linear-gradient(180deg,#000 58%,transparent 80%); mask-image: linear-gradient(180deg,#000 58%,transparent 80%); }
+  @media (max-width:767px){ .wc-land{ height:36%; } .wc-horizon{ bottom:calc(36% - 90px); } .wc-mist{ bottom:calc(36% - 70px); } }
+  @keyframes wcGlobe{ 0%,100%{ transform:translate3d(0,0,0) } 50%{ transform:translate3d(-12px,10px,0) } }
+  @keyframes wcSea{ 0%,100%{ transform:scale(1.6) translateX(0) } 50%{ transform:scale(1.66) translateX(-10px) } }
+  @keyframes wcMist{ from{ transform:translateX(-6%) } to{ transform:translateX(6%) } }
+  @keyframes wcTwinkle{ 0%,100%{ opacity:.7 } 50%{ opacity:.45 } }
+  .no-anim .wc-sea{ transform:scale(1.6); } .no-anim .wc-globe, .no-anim .wc-mist, .no-anim .wc-stars{ animation:none; }
+  @media (prefers-reduced-motion: reduce){ .wc-globe, .wc-sea, .wc-mist, .wc-stars{ animation:none !important; } }
+
+  /* ── Hero collage (v4) — layered scientific composition, right column ───── */
+  .hc-root{ --hc-navy:#081c3a; }
+  .hc-root img{ position:absolute; object-fit:cover; }
+  /* Layer 1 — khí quyển / bão vệ tinh: nền chính, choán góc trên phải */
+  .hc-storm{
+    top:-8%; right:-6%; width:46%; height:54%;
+    -webkit-mask-image: radial-gradient(78% 80% at 66% 46%, #000 26%, rgba(0,0,0,.62) 52%, rgba(0,0,0,.22) 72%, transparent 88%);
+            mask-image: radial-gradient(78% 80% at 66% 46%, #000 26%, rgba(0,0,0,.62) 52%, rgba(0,0,0,.22) 72%, transparent 88%);
+    filter: saturate(.72) brightness(1.2) contrast(1.02) hue-rotate(-6deg);
+    opacity:1; mix-blend-mode:screen;
+    animation: hcDrift 26s ease-in-out infinite;
+  }
+  @media (max-width:1023px){
+    .hc-storm{ top:-16%; width:40%; height:46%; }
+    .hc-river{ top:20%; width:34%; height:36%; }
+  }
+  /* Layer 2 — lưu vực sông: chồng lấn ~1/3 lên ảnh bão, mềm mọi phía */
+  .hc-river{
+    top:22%; right:6%; width:40%; height:42%;
+    -webkit-mask-image: radial-gradient(72% 76% at 52% 50%, #000 18%, rgba(0,0,0,.55) 46%, rgba(0,0,0,.18) 68%, transparent 86%);
+            mask-image: radial-gradient(72% 76% at 52% 50%, #000 18%, rgba(0,0,0,.55) 46%, rgba(0,0,0,.18) 68%, transparent 86%);
+    filter: saturate(.6) brightness(1.14) contrast(1.06) hue-rotate(-14deg);
+    opacity:.85; mix-blend-mode:screen;
+    animation: hcDrift 32s ease-in-out infinite; animation-delay:-9s;
+  }
+  /* Layer 5 — sea surface + observation buoy (foreground, sharper) */
+  .hc-sea{
+    bottom:0; right:-6%; width:50%; height:44%;
+    -webkit-mask-image: radial-gradient(80% 90% at 62% 76%, #000 20%, rgba(0,0,0,.6) 48%, rgba(0,0,0,.2) 70%, transparent 88%);
+            mask-image: radial-gradient(80% 90% at 62% 76%, #000 20%, rgba(0,0,0,.6) 48%, rgba(0,0,0,.2) 70%, transparent 88%);
+    filter: saturate(.62) brightness(1.05) contrast(1.04) hue-rotate(-8deg);
+    opacity:.88; mix-blend-mode:screen;
+    animation: hcDrift 38s ease-in-out infinite; animation-delay:-16s;
+  }
+  .hc-buoy{
+    bottom:4%; right:6%; width:15%; max-width:190px; aspect-ratio:200/260; opacity:.95;
+    filter: drop-shadow(0 0 14px rgba(96,192,240,.35));
+  }
+  .hc-beam{ animation: hcTrack 9s linear infinite; }
+  .hc-sig{ transform-origin:100px 46px; animation: hcSig 3.2s ease-in-out infinite; }
+  @keyframes hcSig{ 0%,100%{ opacity:.15 } 50%{ opacity:.85 } }
+  /* SVG data / model layers */
+  .hc-radar{ top:26%; right:11%; width:27%; aspect-ratio:1/1; opacity:.5; mix-blend-mode:screen; }
+  .hc-circ{ top:50%; right:1%; width:50%; opacity:1; mix-blend-mode:screen; }
+  .hc-web { top:6%;  right:0;  width:44%; height:88%; opacity:.85; }
+  .hc-flowline{ stroke-dasharray:40 300; animation: hcFlow 9s linear infinite; filter: drop-shadow(0 0 6px rgba(96,192,240,.5)); }
+  .hc-node{ animation: hcPulse 3.4s ease-in-out infinite; }
+  .hc-track{ stroke-dasharray:5 6; animation: hcTrack 14s linear infinite; }
+  .hc-sweep{ transform-origin:200px 200px; animation: hcSweep 7s linear infinite; }
+  @keyframes hcFlow  { to{ stroke-dashoffset:-326; } }
+  @keyframes hcTrack { to{ stroke-dashoffset:-110; } }
+  @keyframes hcSweep { to{ transform:rotate(360deg); } }
+  @keyframes hcPulse { 0%,100%{ opacity:.35; r:2.6 } 50%{ opacity:1; r:4 } }
+  @keyframes hcDrift { 0%,100%{ transform:translate3d(0,0,0) } 50%{ transform:translate3d(-10px,12px,0) } }
+  /* uniform navy grade + fade toward the text column */
+  .hc-grade{
+    inset:0; left:26%;
+    background: linear-gradient(180deg, rgba(8,28,58,.2), rgba(11,38,70,.08) 45%, rgba(8,28,58,.26));
+    mix-blend-mode:multiply;
+  }
+  .hc-fade{
+    inset:0;
+    background: linear-gradient(90deg, rgba(8,28,58,.97) 0%, rgba(8,28,58,.95) 42%, rgba(8,28,58,.88) 58%, rgba(8,28,58,.72) 70%, rgba(8,28,58,.4) 82%, rgba(8,28,58,0) 94%);
+  }
+  /* thin annotations */
+  .hc-anno{ display:flex; align-items:center; gap:8px; flex-direction:row-reverse; }
+  .hc-anno-dot{ width:5px; height:5px; border-radius:50%; background:var(--c-sky); box-shadow:0 0 0 4px rgba(96,192,240,.16); flex:none; }
+  .hc-anno-line{ height:1px; background:linear-gradient(90deg, rgba(96,192,240,0), rgba(96,192,240,.7)); flex:none; }
+  .hc-anno-txt{ text-align:right; line-height:1.25; text-shadow:0 2px 12px rgba(4,12,28,.85); }
+  .hc-anno-txt b{ display:block; font-size:10px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.94); }
+  .hc-anno-txt i{ display:block; font-style:normal; font-size:9.5px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:rgba(150,215,250,.8); }
+  .no-anim .hc-storm, .no-anim .hc-river, .no-anim .hc-sea, .no-anim .hc-flowline, .no-anim .hc-node, .no-anim .hc-track, .no-anim .hc-sweep, .no-anim .hc-beam, .no-anim .hc-sig{ animation:none; }
+  @media (prefers-reduced-motion: reduce){
+    .hc-storm, .hc-river, .hc-sea, .hc-flowline, .hc-node, .hc-track, .hc-sweep, .hc-beam, .hc-sig{ animation:none !important; }
+  }
+
+  /* Line clamp helpers */
+  .clamp-2{ display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+  .clamp-3{ display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+  @media (max-width:767px){ .clamp-title{ -webkit-line-clamp:3; } }
+  .abs-card{ transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s, border-color .35s; }
+  .abs-card:hover{ transform: translateY(-4px); box-shadow: 0 24px 50px -20px rgba(10,46,92,.32); border-color: rgba(96,192,240,.6); }
+
+  /* Skewed accent strip */
+  .accent-strip{ background: var(--c-coral); }
+</style>
+
+<!-- React + Babel (pinned) -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body class="font-sans antialiased">
+  <div id="root"></div>
+
+<script type="text/babel">
+// ===== sections-v5.jsx =====
+// sections.jsx — Landing page sections for HMO Conference
+
+// ───────────────────────── Icons (inline SVG) ─────────────────────────
+const Icon = {
+  Calendar: (p) =>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <rect x="3" y="5" width="18" height="16" rx="2" />
+      <path d="M3 9h18M8 3v4M16 3v4" />
+    </svg>,
+
+  Pin: (p) =>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <path d="M12 22s7-7.5 7-13a7 7 0 1 0-14 0c0 5.5 7 13 7 13z" />
+      <circle cx="12" cy="9" r="2.5" />
+    </svg>,
+
+  Clock: (p) =>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" />
+    </svg>,
+
+  Mail: (p) =>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 7l9 7 9-7" />
+    </svg>,
+
+  Phone: (p) =>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 6 6L15 14l5 2v3a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z" />
+    </svg>,
+
+  Globe: (p) =>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" />
+    </svg>,
+
+  ArrowRight: (p) =>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <path d="M5 12h14M13 5l7 7-7 7" />
+    </svg>,
+
+  Check: (p) =>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <path d="M5 12l5 5L20 7" />
+    </svg>,
+
+  Cloud: (p) =>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <path d="M7 18a4 4 0 1 1 .8-7.9A6 6 0 0 1 19 12a4 4 0 0 1-1 7.9H7z" />
+      <path d="M9 14l1.5-2 2 1.5L15 11" />
+    </svg>,
+
+  Wave: (p) =>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <path d="M2 9c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2" />
+      <path d="M2 14c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2" />
+      <path d="M2 19c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2" />
+    </svg>,
+
+  Drop: (p) =>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <path d="M12 3s6 7 6 12a6 6 0 1 1-12 0c0-5 6-12 6-12z" />
+      <path d="M9 14a3 3 0 0 0 3 3" />
+    </svg>,
+
+  Leaf: (p) =>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <path d="M4 20s2-12 16-16c0 12-6 18-16 16z" /><path d="M4 20c5-5 9-9 16-16" />
+    </svg>,
+
+  Cpu: (p) =>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <rect x="5" y="5" width="14" height="14" rx="2" />
+      <rect x="9" y="9" width="6" height="6" />
+      <path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3" />
+    </svg>,
+
+  Spark: (p) =>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <path d="M12 3l1.6 4.6L18 9.2l-4.4 1.6L12 15l-1.6-4.2L6 9.2l4.4-1.6z" />
+      <path d="M19 16l.7 2 2 .7-2 .7L19 21l-.7-1.6-2-.7 2-.7z" />
+    </svg>,
+
+  Users: (p) =>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <circle cx="9" cy="8" r="3.2" /><path d="M2.5 20a6.5 6.5 0 0 1 13 0" />
+      <circle cx="17" cy="9" r="2.6" /><path d="M22 19a5 5 0 0 0-6.5-4.8" />
+    </svg>,
+
+  Doc: (p) =>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <path d="M7 3h8l4 4v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" />
+      <path d="M15 3v5h4M8 13h8M8 17h6" />
+    </svg>,
+
+  Layers: (p) =>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <path d="M12 3l9 5-9 5-9-5 9-5z" /><path d="M3 13l9 5 9-5M3 17l9 5 9-5" />
+    </svg>,
+
+  Facebook: (p) =>
+  <svg viewBox="0 0 24 24" fill="currentColor" {...p}>
+      <path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.8 3.7-3.8 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.5 2.9h-2.3V22A10 10 0 0 0 22 12z" />
+    </svg>,
+
+  Menu: (p) =>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" {...p}>
+      <path d="M4 7h16M4 12h16M4 17h16" />
+    </svg>,
+
+  X: (p) =>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" {...p}>
+      <path d="M6 6l12 12M18 6L6 18" />
+    </svg>
+
+};
+
+// ───────────────────────── Reveal hook ─────────────────────────
+function useReveal(opts = {}) {
+  const ref = React.useRef(null);
+  React.useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const show = () => {
+      el.classList.add('in');
+      const targets = el.classList.contains('reveal-stagger') ? el.children : [el];
+      for (const n of targets) { n.style.opacity = '1'; n.style.transform = 'none'; }
+    };
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            show();
+            io.unobserve(el);
+          }
+        });
+      },
+      { threshold: opts.threshold ?? 0.15, rootMargin: opts.rootMargin ?? '0px 0px -60px 0px' }
+    );
+    io.observe(el);
+    // fallback: nếu IntersectionObserver không kích hoạt (iframe, preview…),
+    // vẫn hiện nội dung để trang không bao giờ trống chữ
+    if (el.getBoundingClientRect().top < window.innerHeight) show();
+    const t = setTimeout(show, 1200);
+    return () => { clearTimeout(t); io.disconnect(); };
+  }, []);
+  return ref;
+}
+
+// ───────────────────────── Logo ─────────────────────────
+function Logo({ light }) {
+  return (
+    <a href="#hero" onClick={(e) => { if (window.__goHome) { e.preventDefault(); window.__goHome(); } }} className="flex items-center gap-2 sm:gap-3 group min-w-0">
+      <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
+        <span className="h-7 sm:h-11 shrink-0 bg-white rounded-md sm:rounded-lg px-1 sm:px-1.5 py-0.5 flex items-center shadow-sm"><img src="assets/hus-70-logo.png" alt="VNU-HUS 70th anniversary logo" className="h-full w-auto" /></span>
+        <span className={`w-px h-5 sm:h-9 ${light ? 'bg-white/30' : 'bg-slate-300'}`} aria-hidden></span>
+        <img src="assets/hmo-logo.png" alt="Faculty logo" className="h-7 sm:h-11 w-auto drop-shadow shrink-0" style={{ objectFit: "fill" }} />
+      </div>
+      <div className={`leading-tight min-w-0 max-w-[210px] sm:max-w-[300px] lg:max-w-[320px] ${light ? 'text-white' : 'text-navy'}`}>
+        <div className={`hidden sm:block text-[11px] lg:text-[12px] font-bold tracking-[.14em] ${light ? 'text-sky' : 'text-ocean'}`}>VNU UNIVERSITY OF SCIENCE — HANOI</div>
+        <div className="text-[10.5px] sm:text-[13px] lg:text-[14px] leading-[1.2] font-extrabold tracking-tight" style={{ textWrap: 'balance' }}>FACULTY OF METEOROLOGY, HYDROLOGY AND OCEANOGRAPHY</div>
+      </div>
+    </a>);
+
+}
+
+// ───────────────────────── Sticky Nav ─────────────────────────
+function StickyNav({ onCTA }) {
+  const [scrolled, setScrolled] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
+  const [active, setActive] = React.useState('hero');
+
+  React.useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 30);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  React.useEffect(() => {
+    const ids = ['programme', 'abstracts', 'register', 'contact'];
+    const io = new IntersectionObserver(
+      (entries) => { entries.forEach((e) => { if (e.isIntersecting) setActive(e.target.id); }); },
+      { rootMargin: '-45% 0px -45% 0px' }
+    );
+    ids.forEach((id) => { const el = document.getElementById(id); if (el) io.observe(el); });
+    return () => io.disconnect();
+  }, []);
+
+  const links = [
+  { id: 'programme', label: 'Programme' },
+  { id: 'abstracts', label: 'Abstracts' },
+  { id: 'contact', label: 'Contact' }];
+
+  return (
+    <header
+      className={`fixed inset-x-0 top-0 z-40 transition-all duration-300 ${
+      scrolled ? 'bg-white/95 backdrop-blur nav-shadow' : 'bg-transparent'}`
+      }>
+      <div className="max-w-7xl mx-auto px-5 md:px-8 h-[68px] flex items-center justify-between">
+        <Logo light={!scrolled} />
+        <nav className="hidden lg:flex items-center gap-1">
+          {links.map((l) =>
+          <a
+            key={l.id}
+            href={`#${l.id}`}
+            className={`relative px-4 py-2 text-[13px] font-semibold tracking-wide rounded-full transition-colors ${
+            scrolled ?
+            active === l.id ? 'text-navy bg-mist' : 'text-slate-600 hover:text-navy' :
+            active === l.id ? 'text-white bg-white/15' : 'text-white/85 hover:text-white'}`
+            }>
+              {l.label}
+            </a>
+          )}
+        </nav>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setOpen((v) => !v)}
+            className={`lg:hidden p-2 rounded-md ${scrolled ? 'text-navy' : 'text-white'}`}
+            aria-label="menu">
+            {open ? <Icon.X className="w-6 h-6" /> : <Icon.Menu className="w-6 h-6" />}
+          </button>
+        </div>
+      </div>
+      <div
+        className={`lg:hidden overflow-hidden bg-white border-t border-slate-100 transition-[max-height] duration-300 ${
+        open ? 'max-h-96' : 'max-h-0'}`
+        }>
+        <div className="px-5 py-3 flex flex-col gap-1">
+          {links.map((l) =>
+          <a
+            key={l.id}
+            href={`#${l.id}`}
+            onClick={() => setOpen(false)}
+            className="px-3 py-2.5 rounded-md text-navy font-semibold text-sm hover:bg-mist">
+              {l.label}
+            </a>
+          )}
+        </div>
+      </div>
+    </header>);
+
+}
+
+// ───────────────────────── Hero ─────────────────────────
+function Hero({ theme, dateLabel, locationLabel, onCTA, bgImage }) {
+  const ref = useReveal();
+  return (
+    <section id="hero" className="relative overflow-hidden text-white bg-navy">
+      <div className="absolute inset-0" aria-hidden>
+        <img
+          src={bgImage}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover scale-[1.08]"
+          style={{ filter: 'blur(8px) brightness(.4) saturate(1.1)', opacity: 0.28 }}
+          referrerPolicy="no-referrer"
+          onError={(e) => {e.currentTarget.style.display = 'none';}} />
+      </div>
+      <div className="absolute inset-0 hero-bg opacity-[.92] mix-blend-multiply" aria-hidden />
+      <div className="absolute inset-0 pointer-events-none z-[1]" aria-hidden
+        style={{ background: 'linear-gradient(90deg, rgba(8,28,58,.92) 0%, rgba(8,28,58,.78) 28%, rgba(8,28,58,.4) 50%, rgba(8,28,58,0) 70%)' }} />
+      <div className="absolute inset-0" aria-hidden
+      style={{ background: 'linear-gradient(180deg, rgba(10,46,92,.35) 0%, rgba(10,46,92,.1) 30%, rgba(10,46,92,.45) 75%, rgba(10,46,92,.9) 100%)' }} />
+      <div className="absolute inset-0 hero-grid opacity-25 pointer-events-none" />
+
+
+      <div className="absolute -bottom-24 -left-24 w-[420px] h-[420px] rounded-full opacity-20 float-y pointer-events-none"
+      style={{ background: 'radial-gradient(circle, rgba(240,120,80,.45), transparent 70%)', animationDelay: '-3s' }} />
+
+      <svg className="absolute bottom-0 left-0 right-0 w-full pointer-events-none z-[3]" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden>
+        <path className="wave-fill" d="M0,64 C240,120 480,8 720,40 C960,72 1200,120 1440,72 L1440,120 L0,120 Z"></path>
+      </svg>
+
+      <div className="relative z-[3] max-w-7xl mx-auto px-5 md:px-8 pt-[140px] md:pt-[160px] pb-[150px] md:pb-[180px]">
+        <div ref={ref} className="reveal max-w-xl md:max-w-[600px] lg:max-w-none">
+          <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-3.5 py-1.5 text-[11px] font-bold tracking-[.22em] text-sky uppercase mb-7 backdrop-blur">
+            <span className="w-1.5 h-1.5 rounded-full bg-coral" style={{ animation: 'pulseDot 1.6s ease-in-out infinite' }} />
+            SCIENTIFIC CONFERENCE · 2026
+          </div>
+
+          <h1 className="font-display font-black tracking-tight text-[32px] sm:text-[40px] md:text-[44px] lg:text-[clamp(38px,3.9vw,50px)] leading-[1.08] text-white drop-shadow-[0_4px_24px_rgba(0,0,0,.45)]" style={{ textWrap: 'pretty' }}>
+            Interdisciplinary integration across<br />
+            <span className="block text-sky"><span className="lg:whitespace-nowrap">meteorology, hydrology and oceanography</span>{' '}
+              <span className="relative inline-block">
+                <span className="relative z-10" style={{ color: '#F07850' }}>for applied science and technology</span>
+                <span className="absolute left-0 right-0 bottom-1 h-3 bg-coral/70 -z-0 rounded-sm"></span>
+              </span>
+            </span>
+          </h1>
+
+          <p className="mt-7 text-base md:text-lg text-white/85 max-w-2xl leading-relaxed drop-shadow-[0_2px_12px_rgba(0,0,0,.35)]">
+            Scientific conference of the <strong className="text-white">Faculty of Meteorology, Hydrology and Oceanography</strong> — VNU University of Science, Hanoi.
+          </p>
+
+          <div className="mt-10 grid sm:grid-cols-5 gap-4 max-w-3xl">
+            <div className="sm:col-span-2 bg-navy/40 hover:bg-navy/55 transition rounded-2xl p-6 md:p-7 border border-white/15 backdrop-blur-md">
+              <div className="flex items-center gap-2.5 text-[11px] font-bold tracking-[.25em] text-sky uppercase">
+                <Icon.Calendar className="w-3.5 h-3.5" /> Date
+              </div>
+              <div className="mt-3 font-display font-black text-white text-[26px] md:text-[30px] leading-[1] tabular-nums tracking-tight whitespace-nowrap">
+                {dateLabel}
+              </div>
+            </div>
+            <div className="sm:col-span-3 bg-navy/40 hover:bg-navy/55 transition rounded-2xl p-6 md:p-7 border border-white/15 backdrop-blur-md">
+              <div className="flex items-center gap-2.5 text-[11px] font-bold tracking-[.25em] text-sky uppercase">
+                <Icon.Pin className="w-3.5 h-3.5" /> Venue
+              </div>
+              <div className="mt-3 font-display font-black text-white text-[15px] md:text-[17px] leading-[1.1] tracking-tight">
+                VNU UNIVERSITY OF SCIENCE
+              </div>
+              <div className="mt-2 text-[13px] font-semibold text-white/75 leading-snug">
+                {locationLabel}
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <button
+              onClick={onCTA}
+              className="btn-coral inline-flex items-center gap-2 text-white font-bold text-sm tracking-[.18em] px-7 py-4 rounded-full">
+              ABSTRACTS
+              <Icon.ArrowRight className="w-4 h-4" />
+            </button>
+            <button
+              onClick={() => { const el = document.getElementById('register'); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 68, behavior: 'smooth' }); }}
+              className="btn-coral inline-flex items-center gap-2 text-white font-bold text-sm tracking-[.18em] px-7 py-4 rounded-full">
+              REGISTER
+              <Icon.ArrowRight className="w-4 h-4" />
+            </button>
+            <a
+              href="#intro"
+              className="inline-flex items-center gap-2 text-white/90 hover:text-white font-semibold text-sm tracking-wider px-6 py-4 rounded-full border border-white/25 hover:border-white/50 transition">
+              Learn more
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>);
+
+}
+
+// ───────────────────────── Intro band ─────────────────────────
+function Intro() {
+  const ref = useReveal();
+  return (
+    <section id="intro" className="relative py-20 md:py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-5 md:px-8">
+        <div ref={ref} className="reveal grid md:grid-cols-3 gap-7 md:gap-10">
+          <div className="md:col-span-1">
+            <div className="h-rule">ABOUT THE CONFERENCE</div>
+            <h2 className="mt-4 font-display font-black text-navy text-[28px] md:text-[34px] leading-[1.1] tracking-tight" style={{ textWrap: 'balance' }}>
+              An interdisciplinary forum on <span className="text-ocean">meteorology, hydrology and oceanography</span>.
+            </h2>
+          </div>
+          <div className="md:col-span-2 grid md:grid-cols-2 gap-6 md:gap-7 text-[14.5px] leading-[1.75] text-slate-700">
+            <p className="md:col-span-2">
+              As climate change, sea level rise and extreme events grow more complex, <strong className="text-navy">interdisciplinary integration</strong> across meteorology, hydrology and oceanography has become essential to addressing Vietnam's practical challenges.
+            </p>
+            <p>
+              The conference connects researchers, lecturers, doctoral students and industry partners to discuss <strong className="text-navy">methodology, modern models and technology applications</strong> in forecasting, early warning, environmental monitoring and resource management.
+            </p>
+            <p>
+              The aim is to develop <strong className="text-navy">science and technology products with high applicability</strong> — from operational forecasting systems and decision-support tools to technical solutions for sustainable development of coastal zones and river basins.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>);
+
+}
+
+// ───────────────────────── Topics ─────────────────────────
+function Topics() {
+  const ref = useReveal();
+  const topics = [
+  { icon: <Icon.Cloud className="w-7 h-7" />, tag: '01', title: 'Meteorology & Climate',
+    desc: 'Weather forecasting models, regional climate, atmospheric circulation research and extreme weather events.' },
+  { icon: <Icon.Drop className="w-7 h-7" />, tag: '02', title: 'Hydrology & Water Resources',
+    desc: 'Streamflow forecasting, river basin management, water balance, and flood — drought risk under change.' },
+  { icon: <Icon.Wave className="w-7 h-7" />, tag: '03', title: 'Oceanography',
+    desc: 'Ocean dynamics, waves — tides — storm surge, marine ecosystems and coastal resource conservation.' },
+  { icon: <Icon.Leaf className="w-7 h-7" />, tag: '04', title: 'Climate Change',
+    desc: 'Impact assessment, mitigation and adaptation; sea level rise, food — energy — environmental security.' },
+  { icon: <Icon.Cpu className="w-7 h-7" />, tag: '05', title: 'AI · Remote Sensing · Big Data',
+    desc: 'Machine learning, satellite remote sensing and big data for environmental monitoring and decision support.' },
+  { icon: <Icon.Spark className="w-7 h-7" />, tag: '06', title: 'Applied Science & Technology',
+    desc: 'Technology transfer, operational forecast products and solutions serving socio-economic development.' }];
+
+  return (
+    <section id="topics" className="relative py-24 md:py-28 bg-mist">
+      <div className="max-w-7xl mx-auto px-5 md:px-8">
+        <div className="max-w-3xl">
+          <div className="h-rule">KEY TOPICS</div>
+          <h2 className="mt-4 font-display font-black text-navy text-[34px] md:text-[44px] leading-[1.1] tracking-tight" style={{ textWrap: 'balance' }}>
+            Six research priorities, one <span className="text-ocean">interdisciplinary</span> current.
+          </h2>
+          <p className="mt-4 text-slate-600 text-[15px] leading-relaxed">
+            Presentations are organised around thematic axes, encouraging cross-disciplinary discussion and links to real-world problems.
+          </p>
+        </div>
+
+        <div ref={ref} className="reveal-stagger mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {topics.map((t) =>
+          <article key={t.tag} className="topic-card group rounded-2xl bg-white p-7 shadow-card border border-white relative overflow-hidden">
+              <div className="absolute top-6 right-6 text-[11px] font-bold tracking-[.22em] text-slate-300">{t.tag}</div>
+              <div className="topic-icon w-14 h-14 rounded-xl bg-sky/15 text-ocean grid place-items-center ring-soft">
+                {t.icon}
+              </div>
+              <h3 className="mt-6 font-display font-extrabold text-[19px] text-navy tracking-tight">{t.title}</h3>
+              <p className="mt-2 text-[14px] text-slate-600 leading-relaxed">{t.desc}</p>
+            </article>
+          )}
+        </div>
+      </div>
+    </section>);
+
+}
+
+// ───────────────────────── Contact ─────────────────────────
+function Contact() {
+  const ref = useReveal();
+  const items = [
+  { icon: <Icon.Users className="w-5 h-5" />, label: 'CONFERENCE SECRETARY', title: 'Dr. Pham Tien Dat',
+    sub: <>Vice Dean, Faculty of Meteorology, Hydrology and Oceanography<br />Tel: 0388147491</> },
+  { icon: <Icon.Mail className="w-5 h-5" />, label: 'EMAIL', title: 'datpt@hus.edu.vn', href: 'mailto:datpt@hus.edu.vn' },
+  { icon: <Icon.Pin className="w-5 h-5" />, label: 'FACULTY OFFICE', title: 'Room 209, T3 Building',
+    sub: '334 Nguyen Trai, Thanh Xuan, Hanoi' },
+  { icon: <Icon.Globe className="w-5 h-5" />, label: 'WEBSITE', title: 'hmo.hus.vnu.edu.vn', href: 'https://hmo.hus.vnu.edu.vn' }];
+
+  return (
+    <section id="contact" className="relative py-24 md:py-28 bg-mist">
+      <div className="max-w-7xl mx-auto px-5 md:px-8">
+        <div className="max-w-3xl">
+          <div className="h-rule">CONTACT</div>
+          <h2 className="mt-4 font-display font-black text-navy text-[34px] md:text-[44px] leading-[1.1] tracking-tight" style={{ textWrap: 'balance' }}>
+            Contact the Organising Committee
+          </h2>
+          <p className="mt-4 text-slate-600 text-[15px] leading-relaxed">
+            For questions on scientific content, abstract submission and media cooperation, please contact:
+          </p>
+        </div>
+
+        <div ref={ref} className="reveal-stagger mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {items.map((x, i) => {
+            const inner =
+            <>
+                <div className="flex items-center gap-3">
+                  <span className="w-10 h-10 grid place-items-center rounded-xl bg-ocean text-white">{x.icon}</span>
+                  <span className="text-[11px] font-bold tracking-[.22em] uppercase text-slate-400">{x.label}</span>
+                </div>
+                <div className="mt-5 font-display font-extrabold text-[17px] text-navy leading-snug">{x.title}</div>
+                {x.sub && <div className="mt-1 text-[13.5px] text-slate-600 leading-relaxed">{x.sub}</div>}
+              </>;
+            const cls = 'block rounded-2xl bg-white border border-white p-6 shadow-card hover:shadow-hi hover:-translate-y-1 transition-all duration-300';
+            return x.href ?
+            <a key={i} href={x.href} className={cls} target="_blank" rel="noreferrer">{inner}</a> :
+            <div key={i} className={cls}>{inner}</div>;
+          })}
+        </div>
+      </div>
+    </section>);
+
+}
+
+// ───────────────────────── Footer ─────────────────────────
+function Footer() {
+  return (
+    <footer className="bg-navy text-white relative">
+      <div className="accent-strip h-1 w-full" />
+      <div className="max-w-7xl mx-auto px-5 md:px-8 py-14">
+        <div className="grid md:grid-cols-12 gap-10">
+          <div className="md:col-span-5">
+            <Logo light />
+            <div className="mt-6 flex items-center gap-3">
+              <a href="#" className="w-10 h-10 grid place-items-center rounded-full bg-white/10 hover:bg-coral transition" aria-label="Facebook">
+                <Icon.Facebook className="w-4.5 h-4.5" />
+              </a>
+              <a href="https://hmo.hus.vnu.edu.vn" target="_blank" rel="noreferrer" className="w-10 h-10 grid place-items-center rounded-full bg-white/10 hover:bg-coral transition" aria-label="Website">
+                <Icon.Globe className="w-4.5 h-4.5" />
+              </a>
+            </div>
+          </div>
+
+          <div className="md:col-span-3">
+            <div className="text-[11px] font-bold tracking-[.22em] uppercase text-sky/80">Navigation</div>
+            <ul className="mt-4 space-y-2.5 text-[14px]">
+              {[
+              ['#intro', 'About'],
+              ['#programme', 'Programme'],
+              ['#abstracts', 'Abstracts'],
+              ['#register', 'Register'],
+              ['#contact', 'Contact']].
+              map(([h, l]) =>
+              <li key={h}><a href={h} className="link-u text-white/80 hover:text-white">{l}</a></li>
+              )}
+            </ul>
+          </div>
+
+          <div className="md:col-span-4">
+            <div className="text-[11px] font-bold tracking-[.22em] uppercase text-sky/80">Links</div>
+            <ul className="mt-4 space-y-2.5 text-[14px]">
+              <li><a href="https://hmo.hus.vnu.edu.vn" target="_blank" rel="noreferrer" className="link-u text-white/80 hover:text-white">Faculty of Meteorology, Hydrology and Oceanography</a></li>
+              <li><a href="https://hus.vnu.edu.vn" target="_blank" rel="noreferrer" className="link-u text-white/80 hover:text-white">VNU University of Science</a></li>
+              <li><a href="https://vnu.edu.vn" target="_blank" rel="noreferrer" className="link-u text-white/80 hover:text-white">Vietnam National University, Hanoi</a></li>
+              <li><a href="#" className="link-u text-white/80 hover:text-white">Conference Facebook page</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-3 text-[12.5px] text-white/55">
+          <div>© 2026 Faculty of Meteorology, Hydrology and Oceanography — VNU University of Science.</div>
+          <div className="tracking-wider">Hanoi · Vietnam</div>
+        </div>
+      </div>
+    </footer>);
+
+}
+
+Object.assign(window, {
+  Icon, useReveal, Logo, StickyNav, Hero, Intro, Topics, Contact, Footer
+});
+</script>
+<script type="text/babel">
+// ===== abstracts-v5.jsx =====
+// abstracts-v5.jsx — abstracts list + detail view (single track)
+
+const ABSTRACTS = [
+{
+  no: 1, slot: '08:40', keynote: true,
+  title: "Turbulence and Waves from Laboratory to Tropical Cyclones: Two Sides of the Same Coin",
+  author: "Associate Professor Boris Galperin",
+  affiliation: "College of Marine Sciences - University of South Florida (USA)",
+  coauthors: [],
+  photo: 'assets/speakers/01-square.png',
+  bio: "Professor Boris Galperin graduated from the Latvian State University in 1975 and received his PhD from the Technion – Israel Institute of Technology in 1992. He accomplished his post-doctoral studies at Princeton University from 1993 to 1989, first at the Program of Atmospheric and Ocean Sciences/GFDL, and then at the Program for Applied and Computational Mathematics. He has been with the College of Marine Science, University of South Florida since 1989. Studies of turbulence in different environments have been among his main interests, and he has made important contributions in several areas. He was a co-developer of the Quasi-Normal Scale Elimination (QNSE) theory, a new analytical theory of turbulence. Applying this theory to stratified flows, he showed that the notion of the critical Richardson number is fallacious. He then derived the vertical kinetic energy spectra that were well known but never developed analytically. He investigated turbulence in flows with a beta-effect and discovered the regime of zonostrophic turbulence that governs the dynamics of the jets on giant planets. Turbulent flows with a constant Coriolis parameter develop the regime of peristrophic turbulence that is behind the atmospheric (Nastrom & Gage) and oceanic spectra. The analysis of the cyclostrophic turbulence in hurricanes reveals that their energy spectra in the eyewall undergoes the transition from the peristrophic to zonostrophic regimes, and this research opens new horizons in studies of tropical cyclones and severe weather. Earlier, Professor Galperin worked on simulations of circulation in Delaware and Tampa Bays, contributed to the development of the PORTS system predicting currents and elevations in Tampa Bay in near-real time, and did early research in hurricane-induced coastal floodings. He co-edited 3 books, one on Large-Eddy Simulation, with Professor Orszag from Princeton University, another one on Zonal Jets, with Professor Peter Read from the University of Oxford, and the last one was dedicated to Professor Jack Herring, with Drs Annick Pouquet and Peter Sullivan, both from the National Center for Atmospheric Research (NCAR). After only two years since its publication, the book has already collected about 100,000 views.",
+  abstract: "Turbulent mixing is a vital part of oceanic and atmospheric physics, yet its representation is notoriously difficult due to strong nonlinearity. It is complicated by interactions with different types of waves. We consider planetary, topographic and vortex Rossby waves. They are important over a vast range of scales in processes relevant to Vietnam, where monsoon-driven circulation, complex coastal topography, energetic ocean currents and tropical cyclones strongly interact. The velocity correlation function shows that turbulence and waves coexist on all scales.\n\nTurbulence-wave interaction was studied in an experimental facility at the University of Turin. Turbulence appeared as a sequence of β-plumes. The flow developed zonal jets and revealed many features of β-plane turbulence. Its kinetic-energy spectrum scaled as f²k⁻³. We define this regime as peristrophic. It is very robust and has been found in the atmosphere (the Nastrom & Gage spectrum) and the ocean (SWOT). The peristrophic spectra were derived analytically using the Quasi-Normal Scale Elimination (QNSE) theory. The scaling with the Coriolis parameter implies an explanation of the mesoscale atmospheric spectra that differs from Charney’s theory of geostrophic turbulence. Another regime, called zonostrophic, develops when the β-effect is strong. Discovered in computer simulations on a β-plane and on a sphere, it was later found on fast-rotating giant planets, Jupiter and Saturn.\n\nA strong β-effect may develop in terrestrial systems with fast cyclostrophic rotation and vortex Rossby waves generated by the cyclostrophic β-effect. Reconnaissance flights into hurricane vortices reveal the regime of zonostrophic turbulence developing in the eyewall regions of hurricanes of Category 4 and 5 on the Saffir-Simpson scale, where turbulence is very strong. This connection is particularly pertinent to Vietnam and the western North Pacific, where intense tropical cyclones can produce destructive winds, extreme waves, storm surge and coastal flooding.\n\nQNSE theory yields not only spectra but also scale-dependent eddy viscosities and diffusivities for the use in numerical models. The QNSE-based framework bears direct relevance to Vietnam’s ocean, coastal and maritime challenges. Improved turbulence closures could strengthen circulation models, including future high-resolution operational forecasting systems, leading to better predictions of currents, mixing, and the transport of heat, sediment and pollutants. Such capabilities are important for coastal management, navigation, offshore operations and the highly dynamic coastal and deltaic environments of Vietnam. The wave-turbulence physics also underpins the energetics of tropical cyclones and extreme weather, with direct implications for typhoon intensity, storm surge, extreme sea states, coastal protection and resilience along Vietnam’s coastline. Topographic Rossby waves and their interaction with turbulence may be particularly important over Vietnam’s continental shelf and slope. The spectral characterization of mesoscale and submesoscale variability provides a physical basis for interpreting new high-resolution SWOT observations of the East Sea and the coastal waters of Vietnam. Combining these observations with turbulence theory improves our understanding and prediction of regional circulation and helps to develop more physically based metocean forecasting for Vietnam’s coastal and offshore environments.\n\nGenerally, turbulence and waves are two sides of the same coin. Advanced circulation and forecasting models should respect this symbiosis."
+},
+{
+  no: 2, slot: '09:20',
+  title: "Insight into meteorological conditions triggering flash droughts in Vietnam",
+  author: "Dr. Pham Thanh Ha",
+  affiliation: "VNU University of Science, Hanoi",
+  coauthors: [],
+  photo: "assets/speakers/02-square.png",
+  bio: "Dr. Pham Thanh Ha is a lecturer at the Department of Meteorology and Climate Change. Her research focuses on rainfall and rainfall forecasting, seasonal-to-subseasonal prediction, extreme weather events in Vietnam, and the application of statistical and machine learning/AI methods in meteorology.",
+  abstract: "This study examines the characteristics and drivers of flash droughts (FD) and conventional droughts (CD) in Vietnam during 1961–2020 using the fifth generation ECMWF (ERA5) reanalysis data. FDs are distinguished from CDs based on the rate of decline in 60-cm root-zone soil moisture percentiles (RZSMp), with FD onset defined by the fastest 10% of drought onset durations at each grid point. Results reveal pronounced spatial heterogeneity: northern and southern sub-regions experience substantially faster drought onset (5–8 days) than central sub-regions (16–20 days). Although FD events are rare (< 1 event/decade) compared to more frequent CDs (6–12 events/decade), they are markedly more aggressive, with soil-moisture depletion rates exceeding 3%/day. Seasonality strongly modulates drought persistence. In northern and southern Vietnam, FD onset occurs predominantly during the warm and rainy season, facilitating rapid soil-moisture recovery and shorter event durations. In contrast, in central Vietnam, the mismatch between the warm season and peak rainfall leads to longer-lasting droughts. Analysis of meteorological drivers shows that FD onset is consistently associated with precipitation deficits (>93.5% of cases) and is predominantly intensified by enhanced evaporation (>59.5% of cases), indicating an evaporation-driven mechanism. However, this evaporative control is weaker in central sub-regions due to moisture limitations during the warm but dry season. Overall, these findings highlight strong regional contrasts in drought dynamics across Vietnam and emphasize the need for location-specific drought monitoring and risk management strategies that address both rapid-onset and prolonged drought hazards."
+},
+{
+  no: 3, slot: '09:40',
+  title: "Short-term flood forecasting using integrated radar-based and NWP rainfall forecasting: A case study of the Ma River basin",
+  author: "Dr. Nguyen Hoang Minh",
+  affiliation: "National Center for Hydro-Meteorological Forecasting",
+  coauthors: [],
+  photo: "assets/speakers/03-sq.png",
+  bio: "Dr. Nguyen Hoang Minh is a hydrological expert. He is currently Vice Head of Natural Disaster Warning Division at Vietnam's National Center for Hydro-Meteorological Forecasting. Holding a Ph.D. from Sejong University, he won the 2021 WMO Research Award for Young Scientists. His work bridges academic research and operational flood forecasting using weather radar and NWP data.",
+  abstract: "Short-term flood forecasting plays a vital role in natural disaster mitigation. However, relying exclusively on numerical weather prediction (NWP) models or ground gauge networks often suffers from spatial resolution constraints and quantitative bias. This study develops an integrated short-term flood forecasting technology combining Weather Research and Forecasting (WRF) NWP rainfall predictions with weather radar data, piloted in the Ma River basin, Vietnam. The workflow comprises two primary operational stages: simulation and forecasting. During the simulation phase, radar quantitative precipitation estimation (QPE) undergoes bias adjustment via a climatological method coupled with Kalman filtering technique. The refined radar QPE is then combined with observations from 72 ground raingauges using Kriging with External Drift (KED). In the forecasting phase, short-term radar quantitative precipitation forecasts (QPF radar) are integrated with WRF model outputs (QPF WRF) using an optimal weighting scheme based on the Critical Success Index (CSI) and Root Mean Square Error (RMSE) in the previous time step window. The resulting integrated precipitation dataset drives the MIKE NAM hydrological model for flood forecasting. Application results in the Ma River basin indicate that Kalman-filtered radar QPE significantly increases correlation coefficients while shifting mean error (ME) values close to zero. Hydrological runoff simulated from KED-blended precipitation achieves superior accuracy compared to individual rainfall inputs. For rainfall forecasting, integrated QPF increases CSI values by 8.77% to 26.83% (improvement percentage) and reduces RMSE across sub-basins relative to standalone WRF forecasts. Consequently, flood forecasting performance at Muong Lat station as well as Hua Na and Trung Son reservoirs improves significantly, with average Nash-Sutcliffe Efficiency (NSE) and Relative Error in Volume (REV) gains of 15.89% and 17.78%, respectively. These results have demonstrated the necessity of incorporating radar rainfall data into flood forecasting in Vietnam."
+},
+{
+  no: 4, slot: '10:35',
+  title: "From Variability to Uncertainty: Modeling the Red River Plume in the Gulf of Tonkin",
+  author: "Dr. Nguyen Duy Tung",
+  affiliation: "VNU University of Science, Hanoi",
+  coauthors: [],
+  photo: "assets/speakers/04-square.png",
+  bio: "Dr. Nguyen Duy Tung obtained his PhD in Ocean–Atmosphere–Climate from the University of Toulouse, France, in 2022, with a thesis focusing on coastal dynamics and river plumes in the Gulf of Tonkin. He then conducted postdoctoral research within the DART project at the Oxford University Clinical Research Unit (OUCRU), which aimed to develop an early warning tool by integrating climate and clinical data. He is currently a lecturer at the University of Science, Vietnam National University Hanoi. His research interests include regional atmospheric and ocean modelling, climate change impacts and adaptation.",
+  abstract: "The Red River is the dominant freshwater source to the Gulf of Tonkin, where its plume exhibits strong variability across daily, seasonal, and interannual timescales. This study investigates the dynamics of the Red River plume through high-resolution numerical modeling, with particular emphasis on its dominant spatial patterns and their sensitivity to wind-forcing uncertainty. Passive tracers are used to identify river-influenced waters, while K-means clustering is applied to characterize recurrent plume configurations and their associated forcing conditions. The results show that river discharge alone cannot explain plume variability, as monsoon winds, tides, and coastal circulation also play important roles. Distinct plume patterns are identified, ranging from narrow coastal distributions to broader offshore extensions under different forcing conditions. The robustness of these patterns is further examined using ensemble simulations generated by perturbing the atmospheric wind forcing. Wind uncertainty produces substantial variability in surface currents, salinity, plume area, thickness, and freshwater transport, with particularly strong responses in coastal regions and during periods of changing wind conditions. Despite these sensitivities, the dominant plume classification remains largely consistent across ensemble members, indicating that the main spatial patterns are relatively robust to wind-forcing uncertainty. Overall, the results highlight the combined importance of physical forcing and forcing uncertainty in interpreting and modeling river-plume variability in the Gulf of Tonkin."
+},
+{
+  no: 5, slot: '10:55',
+  title: 'Climate and Climate Change Information for the Health and Public Health Sector',
+  author: 'Dr. Truong Ba Kien',
+  affiliation: 'Viet Nam Institute of Meteorology, Hydrology, Environment and Marine Sciences (IMHEMS)',
+  coauthors: [],
+  photo: 'assets/speakers/05-square.png',
+  bio: "Dr. Truong Ba Kien is Acting Deputy Director of the Center for Meteorology and Climate Research at the Viet Nam Institute of Meteorology, Hydrology, Environment and Marine Sciences (IMHEMS). He received his B.Sc. (2008) and M.Sc. in Meteorology from VNU University of Science, completed a research fellowship at the Leipzig Institute for Meteorology, Leipzig University, Germany (2013–2015), and earned his Ph.D. in Meteorology and Climatology in 2024. With more than 15 years of experience in meteorological and climate research, he has led and participated in numerous national and ministerial projects on heavy rainfall forecasting, typhoon prediction, climate change impacts, air quality forecasting, and operational weather forecasting systems for Viet Nam. His research interests include numerical weather prediction, extreme rainfall, tropical cyclones, air pollution modelling, climate projections, and artificial intelligence applications in weather and climate forecasting. He has authored and co-authored many papers in international journals such as Climate Dynamics, Climatic Change, and Journal of Water and Climate Change.",
+  abstract: "Climate change is increasing public health risks through heatwaves, heavy rainfall, flooding, drought, air pollution, and shifts in the conditions that favour many infectious diseases. Climate information therefore needs to be integrated into health sector activities across multiple timescales, from current observations, short-range and seasonal forecasts to long-term climate change scenarios. Combining climate and environmental data with epidemiological data, the characteristics of vulnerable groups, and health system capacity can support risk mapping, impact-based early warning, and proactive resource allocation. The case of Hanoi shows that temperature, heat extremes, the urban heat island effect, and heat stress indices are all projected to increase in the future. Dengue fever risk also rises with global warming levels, with median increases of about 15% at 1.5°C, 27% at 2°C, and more than 50% at 3°C relative to the baseline period. Strengthening climate–health data integration, risk surveillance, early warning, and the development of climate-resilient health infrastructure is therefore needed to shift from reactive response to proactive risk management."
+},
+{
+  no: 6, slot: '11:15',
+  title: "Evolving precipitation - baseflow transfer function under hydropower regulation: Diagnostics of non-stationary sensitivity in a monsoonal mountain basin",
+  author: "Assoc. Prof. Dr. Nguyen Y Nhu",
+  affiliation: "VNU University of Science, Hanoi",
+  coauthors: [],
+  photo: "assets/speakers/06-face.png",
+  bio: "Dr. Nguyen Y Nhu is Head of the Department of Hydrology and Water Resources, VNU University of Science, Vietnam National University, Hanoi. Her research focuses on hydrological extremes and water-related impacts under climate change, land-use change and human activities.\n\nIn her flood research, Dr. Nhu is particularly interested in the uncertainty of runoff, inundation and flood damage processes. She uses hydrological and hydraulic models, data analysis methods and computational algorithms to simulate streamflow and inundation extent and to assess flood impacts on vulnerable areas. This work has also provided the foundation for extending her research to the two-way relationship between hydrological processes and human activities in flood risk management.\n\nMore recently, her research has increasingly focused on combining observations, physically based models and data-driven methods to clarify changes in streamflow and water balance under the combined influence of climate and socio-economic development. She is particularly interested in applying advanced statistics and machine learning to identify nonlinear relationships and to support forecasting and water-resource risk assessment.\n\nTo date, Dr. Nguyen Y Nhu has published 45 peer-reviewed scientific articles, has participated in and led numerous research projects on hydrology, floods and water resources, and maintains research collaborations with colleagues and institutions in Vietnam and abroad.",
+  abstract: "Baseflow is a critical component of water resources in monsoonal mountain basins, sustaining dry-season river flow and downstream water availability. In the Lai Chau sub-basin of the Da River, precipitation variability associated with the El Niño–Southern Oscillation (ENSO) has coincided with progressive hydropower development over recent decades. However, whether reservoir regulation preserves, buffers, or amplifies the transmission of climatic variability into baseflow remains poorly understood. Here, we investigate changes in the precipitation–baseflow transfer function during 1980–2020 by examining variability across time scales, the persistence of precipitation-induced responses, and changes in precipitation elasticity. We show that baseflow retains a pronounced interannual component within the 2–5-year ENSO band throughout the study period. Nevertheless, its response to precipitation is largely contemporaneous and dissipates within approximately two years, suggesting limited multi-year hydrological memory. Moreover, baseflow behaviour shifts around 2008, broadly coinciding with intensified reservoir regulation, while precipitation elasticity declines during the initial regulation phase and increases thereafter. These contrasting responses indicate that the strength of precipitation–baseflow coupling changes across regulation regimes rather than remaining constant through time. Our findings reveal that hydropower regulation modifies, rather than removes, the transmission of climatic variability through the basin, demonstrating the need to represent non-stationary storage–release controls when assessing baseflow sensitivity in regulated monsoonal rivers."
+}];
+
+// first two initials of the speaker's name, ignoring titles
+function initialsOf(name) {
+  const strip = name.replace(/\b(Associate Professor|Assoc\.|Prof\.|Dr\.|MSc\.|BSc\.|PhD\.?|Mr\.|Ms\.)\s*/gi, '').trim();
+  const parts = strip.split(/\s+/).filter(Boolean);
+  return ((parts[0]?.[0] || '') + (parts[1]?.[0] || '')).toUpperCase();
+}
+
+function SpeakerAvatar({ item, size = 'list' }) {
+  const cls = size === 'row' ? 'w-14 h-14 md:w-[72px] md:h-[72px] text-[15px] md:text-[18px] ring-2' : size === 'list'
+    ? 'w-20 h-20 md:w-28 md:h-28 text-[20px] md:text-[28px]'
+    : 'w-28 h-28 md:w-40 md:h-40 text-[26px] md:text-[38px]';
+  return (
+    <div className={`${cls} relative rounded-full shrink-0 overflow-hidden bg-ocean text-white grid place-items-center font-display font-black tracking-wide ring-4 ring-white shadow-card`}>
+      <span>{initialsOf(item.author)}</span>
+      {item.photo &&
+        <img src={item.photo} alt={item.author} className="absolute inset-0 w-full h-full object-cover" style={item.photoZoom ? { width: `${item.photoZoom.scale * 100}%`, height: `${(item.photoZoom.hScale || item.photoZoom.scale) * 100}%`, maxWidth: 'none', left: `calc(${item.photoZoom.origin.split(' ')[0]} * (1 - ${item.photoZoom.scale}))`, top: `calc(${item.photoZoom.origin.split(' ')[1]} * (1 - ${item.photoZoom.hScale || item.photoZoom.scale}))`, right: 'auto', bottom: 'auto' } : undefined} onError={(e) => { e.currentTarget.style.display = 'none'; }} />}
+    </div>);
+}
+
+
+// ───────────────────────── Programme (timeline) ─────────────────────────
+const PROGRAMME_CHAIRS = {
+  s1: 'Assoc. Prof. Dr. Nguyen Kim Cuong',
+  s2: 'Assoc. Prof. Dr. Vu Thanh Hang'
+};
+
+function Programme({ onOpen }) {
+  const ref = useReveal();
+  const talk = (no, end) => ({ kind: 'talk', item: ABSTRACTS.find((x) => x.no === no), end });
+  const rows = [
+  { kind: 'event', time: '08:00', end: '08:30', title: 'Registration & welcome' },
+  { kind: 'event', time: '08:30', end: '08:40', title: 'Opening remarks' },
+  { kind: 'session', label: 'SESSION 1', chair: PROGRAMME_CHAIRS.s1 },
+  { kind: 'keynote', item: ABSTRACTS.find((x) => x.no === 1), end: '09:20' },
+  talk(2, '09:40'), talk(3, '10:00'),
+  { kind: 'event', time: '10:00', end: '10:15', title: 'Discussion — Session 1', muted: true },
+  { kind: 'break', time: '10:15', end: '10:35', title: 'Coffee break' },
+  { kind: 'session', label: 'SESSION 2', chair: PROGRAMME_CHAIRS.s2 },
+  talk(4, '10:55'), talk(5, '11:15'), talk(6, '11:35'),
+  { kind: 'event', time: '11:35', end: '11:45', title: 'Discussion — Session 2', muted: true },
+  { kind: 'event', time: '11:45', end: '12:00', title: 'Summary & closing' }];
+
+  return (
+    <section id="programme" className="relative py-24 md:py-28 bg-mist">
+      <div className="max-w-5xl mx-auto px-5 md:px-8">
+        <div className="max-w-3xl">
+          <div className="h-rule">PROGRAMME</div>
+          <h2 className="mt-4 font-display font-black text-navy text-[34px] md:text-[44px] leading-[1.1] tracking-tight" style={{ textWrap: 'balance' }}>
+            Conference programme
+          </h2>
+          <p className="mt-4 text-slate-600 text-[15px] leading-relaxed"><strong className="text-ocean">30 September 2026 · 08:00 – 12:00</strong> · Single track. Select a presentation to read its abstract.</p>
+        </div>
+
+        <ol ref={ref} className="reveal mt-12 relative">
+          <span className="absolute top-2 bottom-2 left-[7px] md:left-[119px] w-px bg-ocean/20" aria-hidden></span>
+          {rows.map((r, i) => {
+            if (r.kind === 'session') return (
+              <li key={i} className="relative md:pl-[152px] pl-8 pt-8 pb-3">
+                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                  <span className="text-[11px] font-bold tracking-[.25em] text-coral">{r.label}</span>
+                  <span className="text-[14px] text-slate-600">Chair: <strong className="text-navy">{r.chair}</strong></span>
+                </div>
+              </li>);
+            const time = r.item ? r.item.slot : r.time;
+            const dot = r.kind === 'keynote' ? 'bg-coral ring-coral/25' : r.kind === 'talk' ? 'bg-ocean ring-ocean/20' : 'bg-white ring-ocean/25 border-2 border-ocean';
+            return (
+              <li key={i} className="relative grid md:grid-cols-[104px_minmax(0,1fr)] md:gap-12 pl-8 md:pl-0 py-2">
+                <div className="flex md:flex-col md:items-end gap-x-1.5 md:pt-[18px] md:pr-3 font-display tabular-nums leading-tight">
+                  <span className="text-[14px] md:text-[17px] font-extrabold text-navy">{time}</span>
+                  <span className="text-[13px] md:text-[12.5px] font-semibold text-slate-400"><span className="md:hidden">– </span>{r.end}</span>
+                </div>
+                <span className={`absolute left-0 md:left-[112px] top-[6px] md:top-[26px] w-[15px] h-[15px] rounded-full ring-4 ${dot}`} aria-hidden></span>
+                {r.kind === 'talk' ?
+                <button onClick={() => onOpen(r.item.no)} className="abs-card mt-2 md:mt-0 text-left rounded-2xl bg-white border border-slate-100 shadow-card p-5 md:p-6 flex items-center gap-4">
+                    <SpeakerAvatar item={r.item} size="row" />
+                    <div className="min-w-0">
+                      <div className="font-display font-extrabold text-[15.5px] md:text-[16.5px] text-navy leading-snug clamp-2 clamp-title">{r.item.title}</div>
+                      <div className="mt-1.5 text-[13px] font-semibold text-sky leading-snug">{r.item.author}{r.item.coauthors.length ? ` ${r.item.coauthors.join(', ')}` : ''}</div>
+                    </div>
+                    <Icon.ArrowRight className="hidden sm:block w-4 h-4 text-ocean shrink-0 ml-auto" />
+                  </button> :
+                r.kind === 'keynote' ?
+                <button onClick={() => onOpen(r.item.no)} className="abs-card mt-2 md:mt-0 w-full text-left rounded-2xl bg-navy text-white p-5 md:p-6 shadow-hi flex items-center gap-4">
+                    <SpeakerAvatar item={r.item} size="row" />
+                    <div className="min-w-0">
+                      <div className="text-[11px] font-bold tracking-[.25em] text-coral">KEYNOTE</div>
+                      <div className="mt-2 font-display font-extrabold text-[17px] md:text-[19px] leading-snug">{r.item.title}</div>
+                      <div className="mt-1.5 text-[13.5px] font-semibold text-sky">{r.item.author}</div>
+                    </div>
+                    <Icon.ArrowRight className="hidden sm:block w-4 h-4 text-sky shrink-0 ml-auto" />
+                  </button> :
+                <div className={`mt-1 md:mt-0 md:pt-[18px] md:pb-3 font-display font-bold text-[15px] md:text-[16px] ${r.kind === 'break' ? 'text-coral' : r.muted ? 'text-slate-500' : 'text-navy'}`}>
+                    {r.title}
+                  </div>}
+              </li>);
+          })}
+        </ol>
+      </div>
+    </section>);
+}
+
+// ───────────────────────── List section ─────────────────────────
+function Abstracts({ onOpen }) {
+  const ref = useReveal();
+  return (
+    <section id="abstracts" className="relative py-24 md:py-28 bg-white">
+      <div className="max-w-7xl mx-auto px-5 md:px-8">
+        <div className="max-w-3xl">
+          <div className="h-rule">ABSTRACTS</div>
+          <h2 className="mt-4 font-display font-black text-navy text-[34px] md:text-[44px] leading-[1.1] tracking-tight" style={{ textWrap: 'balance' }}>
+            Accepted presentations, in <span className="text-ocean">presentation order</span>.
+          </h2>
+          <p className="mt-4 text-slate-600 text-[15px] leading-relaxed">
+            A single track. Select a paper to read the full abstract.
+          </p>
+        </div>
+
+        <div ref={ref} className="reveal-stagger mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {ABSTRACTS.map((a) =>
+          <article
+            key={a.no}
+            onClick={() => onOpen(a.no)}
+            tabIndex={0}
+            role="button"
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onOpen(a.no); } }}
+            className="abs-card cursor-pointer rounded-2xl bg-white p-7 shadow-card border border-slate-100 relative overflow-hidden flex flex-col outline-none focus-visible:ring-4 focus-visible:ring-sky/40">
+              <div className="flex items-start gap-4">
+                <SpeakerAvatar item={a} />
+                <div className="min-w-0">
+                  <div className="text-[11px] font-bold tracking-[.22em] text-coral tabular-nums">
+                    {a.keynote ? 'KEYNOTE' : String(a.no).padStart(2, '0')} · {a.slot}
+                  </div>
+                  <h3 className="mt-2 font-display font-extrabold text-[17px] text-navy leading-snug clamp-2 clamp-title">
+                    {a.title}
+                  </h3>
+                </div>
+              </div>
+              <div className="mt-5 text-[13.5px] font-semibold text-sky leading-snug">
+                {a.author}
+                {a.coauthors.length ? ` ${a.coauthors.join(', ')}` : ''}
+                <span className="block font-medium text-[12.5px] text-ocean/70 mt-0.5">{a.affiliation}</span>
+              </div>
+              <p className="mt-4 text-[13.5px] text-slate-600 leading-relaxed clamp-3">{a.abstract}</p>
+              <div className="mt-5 pt-4 border-t border-slate-100 flex items-center gap-2 text-[12px] font-bold tracking-[.18em] uppercase text-ocean">
+                Read abstract <Icon.ArrowRight className="w-3.5 h-3.5" />
+              </div>
+            </article>
+          )}
+        </div>
+      </div>
+    </section>);
+
+}
+
+// ───────────────────────── Detail view ─────────────────────────
+function AbstractDetail({ item, onBack }) {
+  return (
+    <section className="relative bg-white pt-[120px] md:pt-[140px] pb-24">
+      <div className="absolute inset-x-0 top-0 h-[280px] bg-navy" aria-hidden>
+        <div className="absolute inset-0 hero-grid opacity-25" />
+      </div>
+      <div className="relative max-w-4xl mx-auto px-5 md:px-8">
+        <button
+          onClick={onBack}
+          className="inline-flex items-center gap-2 text-white/85 hover:text-white font-semibold text-[13px] tracking-wider px-4 py-2.5 rounded-full border border-white/25 hover:border-white/50 transition">
+          ← Back to abstracts list
+        </button>
+
+        <div className="mt-7 bg-white rounded-3xl shadow-hi border border-slate-100 p-7 md:p-12">
+          <div className="text-[11px] font-bold tracking-[.22em] text-coral tabular-nums">
+            {item.keynote ? 'KEYNOTE' : `PRESENTATION ${String(item.no).padStart(2, '0')}`} · {item.slot}
+          </div>
+          <h1 className="mt-4 font-display font-black text-navy text-[26px] md:text-[36px] leading-[1.15] tracking-tight" style={{ textWrap: 'balance' }}>
+            {item.title}
+          </h1>
+
+          <div className="mt-8 flex items-center gap-5 pb-8 border-b border-slate-100">
+            <SpeakerAvatar item={item} size="detail" />
+            <div className="min-w-0">
+              <div className="text-[11px] font-bold tracking-[.22em] uppercase text-slate-400">Presenting author</div>
+              <div className="mt-1.5 font-display font-extrabold text-[19px] md:text-[21px] text-navy leading-snug">{item.author}</div>
+              <div className="mt-1 text-[13.5px] font-semibold text-sky leading-snug">{item.affiliation}</div>
+              {item.coauthors.length > 0 &&
+              <div className="mt-2 text-[13px] text-slate-600">
+                  <span className="font-semibold text-navy">Co-authors: </span>{item.coauthors.join(', ')}
+                </div>}
+            </div>
+          </div>
+
+          <div className="mt-8">
+            <div className="h-rule">ABSTRACT</div>
+            <div className="mt-5 flex flex-col gap-4 text-[15px] md:text-[16px] leading-[1.85] text-slate-700">
+              {item.abstract.split('\n\n').map((para, i) => <p key={i} style={{ textWrap: 'pretty' }}>{para}</p>)}
+            </div>
+          </div>
+
+          <div className="mt-10">
+            <div className="h-rule">SHORT BIO</div>
+            <div className="mt-5">
+              <div className="min-w-0">
+                <div className="font-display font-extrabold text-[16px] text-navy">{item.author}</div>
+                {item.bio ?
+                <div className="mt-2 flex flex-col gap-3 text-[14.5px] md:text-[15px] leading-[1.8] text-slate-700">{item.bio.split('\n\n').map((para, i) => <p key={i} style={{ textWrap: 'pretty' }}>{para}</p>)}</div> :
+                <p className="mt-2 text-[14.5px] leading-[1.8] text-slate-400 italic">[Short bio to be provided]</p>}
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-10 pt-7 border-t border-slate-100">
+            <button onClick={onBack} className="inline-flex items-center gap-2 text-ocean hover:text-navy font-semibold text-sm">
+              ← Back to abstracts list
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>);
+
+}
+
+
+// ───────────────────────── Registration (attendance only) ─────────────────────────
+function Registration() {
+  const ref = useReveal();
+  const ENDPOINT_URL = 'https://script.google.com/macros/s/AKfycbwvjKGbLumzLjojISQVPG7PFxSmf-MiQ1JbASlBrknBE7IxeZQVIX6oQnXa04MXZw2_/exec';
+  const MODES = [{ v: 'Trực tiếp', l: 'In person' }, { v: 'Trực tuyến', l: 'Online' }];
+  const empty = { name: '', email: '', phone: '', org: '', title: '', mode: 'Trực tiếp' };
+  const [form, setForm] = React.useState(empty);
+  const [errors, setErrors] = React.useState({});
+  const [sending, setSending] = React.useState(false);
+  const [done, setDone] = React.useState(false);
+  const [failed, setFailed] = React.useState(false);
+  const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
+  const validate = () => {
+    const e = {};
+    if (!form.name.trim()) e.name = 'Please enter your full name';
+    if (!form.email.trim()) e.email = 'Please enter your email';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = 'Invalid email address';
+    if (form.phone.trim() && !/^[0-9+\-\s()]{8,}$/.test(form.phone)) e.phone = 'Invalid phone number';
+    if (!form.org.trim()) e.org = 'Please enter your organisation';
+    setErrors(e);
+    return Object.keys(e).length === 0;
+  };
+  const submit = async (ev) => {
+    ev.preventDefault();
+    setFailed(false);
+    if (!validate()) return;
+    setSending(true);
+    try {
+      await fetch(ENDPOINT_URL, {
+        method: 'POST', mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({ hoTen: form.name, email: form.email, dienThoai: form.phone, donVi: form.org, chucDanh: form.title, hinhThuc: form.mode, tomTat: '', fileName: '', mimeType: '', fileData: '' })
+      });
+      setDone(true);
+    } catch (err) { setFailed(true); } finally { setSending(false); }
+  };
+  const fieldCls = (k) => `w-full bg-white border ${errors[k] ? 'border-red-500' : 'border-slate-200'} rounded-xl px-4 py-3.5 text-[14px] text-slate-800 placeholder:text-slate-400 outline-none focus:border-ocean`;
+  const lbl = 'block text-[12px] font-bold tracking-wider text-navy uppercase mb-2';
+  const err = (k) => errors[k] && <div className="mt-1.5 text-[12px] text-red-600 font-medium">{errors[k]}</div>;
+  return (
+    <section id="register" className="relative py-24 md:py-28 bg-navy text-white overflow-hidden">
+      <div className="relative max-w-7xl mx-auto px-5 md:px-8">
+        <div ref={ref} className="reveal grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          <div className="lg:col-span-5">
+            <div className="text-[11px] font-bold tracking-[.22em] uppercase text-sky">Registration</div>
+            <h2 className="mt-4 font-display font-black text-[34px] md:text-[44px] leading-[1.1] tracking-tight" style={{ textWrap: 'balance' }}>
+              Register to <span className="text-sky">attend</span>
+            </h2>
+            <p className="mt-5 text-white/80 text-[15px] leading-relaxed max-w-md" style={{ textWrap: 'pretty' }}>
+              Let us know whether you will join in person or online so the organising committee can plan seating and the online session.
+            </p>
+          </div>
+          <div className="lg:col-span-7">
+            <div className="bg-white text-slate-800 rounded-3xl p-7 md:p-10 shadow-hi">
+              {!done ?
+              <form onSubmit={submit} noValidate className="grid sm:grid-cols-2 gap-4">
+                <div className="sm:col-span-2">
+                  <label className={lbl}>Attendance *</label>
+                  <div className="grid grid-cols-2 gap-2">
+                    {MODES.map((m) =>
+                    <button type="button" key={m.v} onClick={() => setForm({ ...form, mode: m.v })}
+                      className={`px-3 py-3.5 rounded-xl border text-[14px] font-semibold transition ${form.mode === m.v ? 'bg-navy text-white border-navy' : 'bg-white text-slate-600 border-slate-200 hover:border-ocean hover:text-ocean'}`}>
+                      {m.l}
+                    </button>)}
+                  </div>
+                </div>
+                <div className="sm:col-span-2">
+                  <label className={lbl}>Full name *</label>
+                  <input value={form.name} onChange={set('name')} className={fieldCls('name')} placeholder="e.g. Nguyen Van A" />
+                  {err('name')}
+                </div>
+                <div>
+                  <label className={lbl}>Email *</label>
+                  <input type="email" value={form.email} onChange={set('email')} className={fieldCls('email')} placeholder="name@hus.edu.vn" />
+                  {err('email')}
+                </div>
+                <div>
+                  <label className={lbl}>Phone</label>
+                  <input value={form.phone} onChange={set('phone')} className={fieldCls('phone')} placeholder="0xxx xxx xxx" />
+                  {err('phone')}
+                </div>
+                <div>
+                  <label className={lbl}>Organisation *</label>
+                  <input value={form.org} onChange={set('org')} className={fieldCls('org')} placeholder="University / Institute / Agency" />
+                  {err('org')}
+                </div>
+                <div>
+                  <label className={lbl}>Title / Degree</label>
+                  <input value={form.title} onChange={set('title')} className={fieldCls('title')} placeholder="e.g. Dr., Assoc. Prof., MSc." />
+                </div>
+                <div className="sm:col-span-2 mt-3 flex flex-col sm:flex-row items-center gap-4">
+                  <button type="submit" disabled={sending} className="btn-coral inline-flex items-center justify-center gap-2 text-white font-bold text-sm tracking-[.18em] px-8 py-4 rounded-full w-full sm:w-auto disabled:opacity-60 disabled:cursor-not-allowed">
+                    {sending ? 'SENDING…' : 'SUBMIT'}
+                  </button>
+                  {failed && <div className="text-[13px] text-red-600 font-medium">Could not send. Please try again or contact the organisers.</div>}
+                </div>
+              </form> :
+              <div className="text-center py-8">
+                <h3 className="font-display font-black text-[26px] text-navy">Thank you, {form.name}!</h3>
+                <p className="mt-3 text-slate-600 text-[15px]">
+                  Your registration to attend <strong>{MODES.find((m) => m.v === form.mode).l.toLowerCase()}</strong> has been received.
+                </p>
+                <button onClick={() => { setForm(empty); setErrors({}); setDone(false); }} className="mt-7 text-ocean hover:text-navy font-semibold text-sm">
+                  Register another person
+                </button>
+              </div>}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>);
+}
+
+Object.assign(window, { Programme, PROGRAMME_CHAIRS, ABSTRACTS, Abstracts, AbstractDetail, SpeakerAvatar, initialsOf, Registration });
+
+</script>
+<script type="text/babel">
+// ===== app =====
+// app-v5.jsx — English abstracts version
+
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "palette": ["#0A2E5C", "#1B4E8F", "#60C0F0", "#F07850"],
+  "animations": true,
+  "bgImage": "https://images.unsplash.com/photo-1505142468610-359e7d316be0?auto=format&fit=crop&w=2400&q=80",
+  "theme": "Interdisciplinary integration across meteorology, hydrology and oceanography for applied science and technology",
+  "date": "30 / 09 / 2026",
+  "location": "334 Nguyen Trai, Thanh Xuan, Hanoi"
+}/*EDITMODE-END*/;
+
+const BG_IMAGES = [
+  "https://images.unsplash.com/photo-1505142468610-359e7d316be0?auto=format&fit=crop&w=2400&q=80",
+  "https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?auto=format&fit=crop&w=2400&q=80",
+  "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=2400&q=80",
+  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2400&q=80",
+];
+
+const PALETTES = [
+  ["#0A2E5C", "#1B4E8F", "#60C0F0", "#F07850"],
+  ["#0B3D2E", "#176E4A", "#7BD3B0", "#F2A766"],
+  ["#1A1A40", "#3D348B", "#7678ED", "#F7B801"],
+  ["#1A2A33", "#37474F", "#4DD0E1", "#FF7043"],
+];
+
+function App() {
+  const t = TWEAK_DEFAULTS;
+  const [view, setView] = React.useState(null); // null = list page, number = abstract no
+  const scrollMemo = React.useRef(0);
+
+  React.useEffect(() => {
+    const [navy, ocean, sky, coral] = t.palette || PALETTES[0];
+    const r = document.documentElement.style;
+    r.setProperty('--c-navy', navy);
+    r.setProperty('--c-ocean', ocean);
+    r.setProperty('--c-sky', sky);
+    r.setProperty('--c-coral', coral);
+  }, [t.palette]);
+
+  React.useEffect(() => {
+    document.body.classList.toggle('no-anim', !t.animations);
+  }, [t.animations]);
+
+  const pendingScroll = React.useRef(null);
+  const jump = (y) => window.scrollTo({ top: y, left: 0, behavior: 'instant' });
+
+  React.useLayoutEffect(() => {
+    if (pendingScroll.current === null) return;
+    const p = pendingScroll.current;
+    pendingScroll.current = null;
+    const target = () => {
+      if (typeof p === 'number') return p;
+      const el = document.getElementById(p);
+      return el ? el.getBoundingClientRect().top + window.scrollY - 68 : 0;
+    };
+    jump(target());
+    requestAnimationFrame(() => jump(target()));
+  }, [view]);
+
+  React.useEffect(() => {
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    const m = location.hash.match(/^#abstract-(\d+)$/);
+    if (m && ABSTRACTS.some((a) => a.no === +m[1])) { history.replaceState({ no: null }, '', location.pathname); history.pushState({ no: +m[1] }, '', '#abstract-' + m[1]); pendingScroll.current = 0; setView(+m[1]); }
+    const onPop = (e) => {
+      const no = e.state && e.state.no != null ? e.state.no : null;
+      const h = location.hash.slice(1);
+      if (no === null && h && !h.startsWith('abstract-')) pendingScroll.current = h;
+      else pendingScroll.current = no === null ? scrollMemo.current : 0;
+      setView(no);
+    };
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, []);
+
+  const openAbstract = (no) => {
+    scrollMemo.current = window.scrollY;
+    history.pushState({ no }, '', '#abstract-' + no);
+    pendingScroll.current = 0;
+    setView(no);
+  };
+
+  const backToList = () => {
+    if (history.state && history.state.no != null) { history.back(); return; }
+    pendingScroll.current = scrollMemo.current;
+    setView(null);
+  };
+
+  React.useEffect(() => { window.__goHome = backToList; }, []);
+
+  const scrollToAbstracts = () => {
+    if (view !== null) { backToList(); return; }
+    const el = document.getElementById('abstracts');
+    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 68, behavior: 'smooth' });
+  };
+
+  const item = view === null ? null : ABSTRACTS.find((a) => a.no === view);
+
+  return (
+    <div className="relative">
+      <StickyNav onCTA={scrollToAbstracts} />
+      {item ?
+      <AbstractDetail item={item} onBack={backToList} /> :
+      <>
+        <Hero
+          theme={t.theme}
+          dateLabel={t.date}
+          locationLabel={t.location}
+          onCTA={scrollToAbstracts}
+          bgImage={t.bgImage}
+        />
+        <Intro />
+        <Programme onOpen={openAbstract} />
+        <Abstracts onOpen={openAbstract} />
+        <Registration />
+        <Contact />
+      </>}
+      <Footer />
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+
+</script>
+
+</body>
+</html>
